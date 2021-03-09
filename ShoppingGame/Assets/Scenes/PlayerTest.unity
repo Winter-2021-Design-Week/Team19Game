@@ -121,31 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &674957259 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 334570084020445938, guid: 821a4ff1e2fad3242af30c3c71fa088d,
-    type: 3}
-  m_PrefabInstance: {fileID: 334570084695139641}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &674957262
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 674957259}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9b6b6dd14b828c546992b250cefebb52, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1368188680
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,21 +211,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 334570084020445940, guid: 821a4ff1e2fad3242af30c3c71fa088d,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -954421080539780081, guid: 5ba3722fe592b654b84e938f85ed151c,
-        type: 3}
     - target: {fileID: 334570084295961514, guid: 821a4ff1e2fad3242af30c3c71fa088d,
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 334570084295961518, guid: 821a4ff1e2fad3242af30c3c71fa088d,
-        type: 3}
-      propertyPath: speed
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 334570084295961519, guid: 821a4ff1e2fad3242af30c3c71fa088d,
         type: 3}
