@@ -1,19 +1,13 @@
 fileFormatVersion: 2
-guid: 8750fe4f2d381a141a7d4ed6fdf8e999
+guid: 4ec79c54fff94894fab5d90e6c0789d7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1958173984409602536
-    second: shopper_back-Sheet_0
+      213: 2682672594392992379
+    second: shpper_back_idle_sheet_0
   - first:
-      213: -2903273681285128757
-    second: shopper_back-Sheet_1
-  - first:
-      213: -3427493329166225573
-    second: shopper_back-Sheet_2
-  - first:
-      213: -339911575018447457
-    second: shopper_back-Sheet_3
+      213: 159200252319701298
+    second: shpper_back_idle_sheet_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -123,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: shopper_back-Sheet_0
+      name: shpper_back_idle_sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e9452d2dd4dc2b10800000000000000
-      internalID: 1958173984409602536
+      spriteID: b7a487dd284ca3520800000000000000
+      internalID: 2682672594392992379
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shopper_back-Sheet_1
+      name: shpper_back_idle_sheet_1
       rect:
         serializedVersion: 2
         x: 64
@@ -158,50 +152,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bcd524518ff75b7d0800000000000000
-      internalID: -2903273681285128757
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shopper_back-Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b5fa60d0af81f60d0800000000000000
-      internalID: -3427493329166225573
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shopper_back-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f9d5bf33934684bf0800000000000000
-      internalID: -339911575018447457
+      spriteID: 2391ba739c7953200800000000000000
+      internalID: 159200252319701298
       vertices: []
       indices: 
       edges: []

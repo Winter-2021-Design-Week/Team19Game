@@ -50,6 +50,23 @@ public class PlayerScript : MonoBehaviour
         // Temporary animation parameter output
         anim.SetFloat("currentSpeed", stepDirection.magnitude);
 
+        if (stepDirection.y > 0)
+        {
+            anim.SetBool("up", false);
+        }
+        if (stepDirection.y < 0)
+        {
+            anim.SetBool("up", true);
+        }
+        if (stepDirection.x > 0)
+        {
+            anim.SetBool("right", true);
+        }
+        if (stepDirection.x < 0)
+        {
+            anim.SetBool("right", false);
+        }
+
         stepDirection = Vector2.zero;
     }
 }
