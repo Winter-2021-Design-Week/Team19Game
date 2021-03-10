@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public bool levelOver;
 
     // Timer and score variables
-    public Text timer, finalReadout;
+    public Text timer, budget, finalReadout;
 
     public int currentCash, maxCash, maxTime;
 
@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
         levelOver = false;
 
         currentCash = 0;
+
+        budget.text = "Try to reach your $" + maxCash + " budget!";
     }
 
     // Update is called once per frame

@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class CashItem : MonoBehaviour
 {
+    [HideInInspector]
+    public CashItemSO profile;
+
+    string itemName, itemType;
+
     // Cash value of product
     [SerializeField]
     int value;
@@ -17,8 +22,9 @@ public class CashItem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        UpdateFromProfile();
+
         gm = FindObjectOfType<GameManager>();
-        valueText.text = "$" + value;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -28,5 +34,19 @@ public class CashItem : MonoBehaviour
             gm.AddCash(value);
             Destroy(gameObject);
         }
+    }
+
+    public void UpdateFromProfile()
+    {
+        value = profile.value;
+        valueText.text = "$" + value;
+        itemName = profile.itemName;
+        itemType = profile.itemType;
+        UpdateSprite();
+    }
+
+    void UpdateSprite()
+    {
+        GetComponentInChildren<SpriteRenderer>().sprite = profile.sprite;
     }
 }
