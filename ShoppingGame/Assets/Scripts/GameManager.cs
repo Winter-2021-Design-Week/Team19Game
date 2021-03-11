@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     // Timer and score variables
     public Text timer, budget, finalReadout;
+    int sec, milli;
 
     public Image readoutPanel;
 
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
         // Game over by timeout
         if (Time.timeSinceLevelLoad >= maxTime && levelOver == false)
         {
+            timer.text = "0.000";
             levelOver = true;
             ReadLoss();
         }
@@ -43,14 +45,14 @@ public class GameManager : MonoBehaviour
         }
 
         // HUD timer update
-        if (Time.timeSinceLevelLoad <= maxTime)
+        if (Time.timeSinceLevelLoad <= maxTime && levelOver == false)
         {
             // Time unit calculations
-            int sec = (int)Time.timeSinceLevelLoad;
-            int milli = (int)(Time.timeSinceLevelLoad * 1000) % 1000;
+            sec = (int)Time.timeSinceLevelLoad;
+            milli = (int)(Time.timeSinceLevelLoad * 1000) % 1000;
 
             // Timer's visual update
-            timer.text = $"{maxTime - 1 - sec}.{999 - milli:000}";
+            timer.text = $"{maxTime - 1 - sec}.{(1000 - milli) % 1000:000}";
         }
     }
 
@@ -74,6 +76,7 @@ public class GameManager : MonoBehaviour
         else
         {
             finalReadout.text = "You spent:\n$" + currentCash + "/$" + maxCash + "\n" + (((float)currentCash / maxCash) * 100).ToString("0.00") + "% of your budget\n× " + currentItems + " items";
+            finalReadout.text += $"\nwith {maxTime - 1 - sec}.{(1000 - milli) % 1000:000} seconds to spare!";
             finalReadout.text += "\nScore: " + (((float)currentCash / maxCash) * 100) * currentItems;
 
             // If over budget
@@ -95,8 +98,8 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // End level in 5 seconds
-        Invoke("EndLevel", 5);
+        // End level in 10 seconds
+        Invoke("EndLevel", 10);
     }
 
     void ReadLoss()
