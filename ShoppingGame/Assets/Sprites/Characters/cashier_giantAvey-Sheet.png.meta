@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 8225af578e2dee5498bad15af900a11a
+guid: 9c095d916cb9aa04fb15386377a5d0d8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7998699173784148589
-    second: cashier_giantBirb-Sheet_0
+      213: 6107457887456062600
+    second: cashier_giantAvey-Sheet_0
   - first:
-      213: -5160243049710564379
-    second: cashier_giantBirb-Sheet_1
+      213: -8903526286079478661
+    second: cashier_giantAvey-Sheet_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cashier_giantBirb-Sheet_0
+      name: cashier_giantAvey-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 192
-        height: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 395a269fa79eef090800000000000000
-      internalID: -7998699173784148589
+      spriteID: 88ce976079c02c450800000000000000
+      internalID: 6107457887456062600
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cashier_giantBirb-Sheet_1
+      name: cashier_giantAvey-Sheet_1
       rect:
         serializedVersion: 2
-        x: 192
+        x: 64
         y: 0
-        width: 192
-        height: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,8 +152,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ebc25359422368b0800000000000000
-      internalID: -5160243049710564379
+      spriteID: b7431e50402507480800000000000000
+      internalID: -8903526286079478661
       vertices: []
       indices: 
       edges: []

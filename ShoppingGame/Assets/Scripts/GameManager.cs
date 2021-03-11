@@ -80,6 +80,6 @@ public class GameManager : MonoBehaviour
         CancelInvoke();
 
         // Temporary level call
-        SceneManager.LoadScene("TestLevel");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

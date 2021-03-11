@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 8918627164488832774}
   - component: {fileID: 8180763908077603932}
   m_Layer: 0
-  m_Name: TempItem
+  m_Name: CashItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
