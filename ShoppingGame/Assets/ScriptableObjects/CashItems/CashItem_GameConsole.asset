@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Game Console
   itemType: Tech
-  value: 150
+  value: 75
   sprite: {fileID: 8879839952443800403, guid: 3ba31ba6d8e200846bd15bfc3cb3045a, type: 3}

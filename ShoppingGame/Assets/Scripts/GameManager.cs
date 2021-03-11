@@ -11,12 +11,14 @@ public class GameManager : MonoBehaviour
     // Timer and score variables
     public Text timer, budget, finalReadout;
 
-    public int currentCash, maxCash, maxTime;
+    public Image readoutPanel;
+
+    public int currentCash = 0, maxCash, maxTime, currentItems = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        finalReadout.gameObject.SetActive(false);
+        readoutPanel.gameObject.SetActive(false);
 
         levelOver = false;
 
@@ -28,10 +30,15 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Restart scene at time
+        // Game over by timeout
         if (Time.timeSinceLevelLoad >= maxTime && levelOver == false)
         {
             levelOver = true;
+            ReadLoss();
+        }
+        // Win, if out of the store before timeout (levelOver is set true by another gameobject)
+        else if (Time.timeSinceLevelLoad < maxTime && levelOver == true)
+        {
             ReadScore();
         }
         else if (Time.timeSinceLevelLoad <= maxTime)
@@ -43,14 +50,16 @@ public class GameManager : MonoBehaviour
 
     public void AddCash(int amount)
     {
+        currentItems++;
         currentCash += amount;
     }
 
     void ReadScore()
     {
         // Show final score
-        finalReadout.gameObject.SetActive(true);
-        finalReadout.text = "You spent:\n$" + currentCash + "/$" + maxCash + "\nThat's\n" + (((float)currentCash / maxCash) * 100).ToString("00.00") + "%\nof your budget!";
+        readoutPanel.gameObject.SetActive(true);
+        finalReadout.text = "You spent:\n$" + currentCash + "/$" + maxCash + "\n" + (((float)currentCash / maxCash) * 100).ToString("00.00") + "%\nof your budget X " + currentItems;
+        finalReadout.text += "\nScore: " + (((float)currentCash / maxCash) * 100) * currentItems;
 
         // If over budget
         if ((float)currentCash / maxCash > 1)
@@ -69,6 +78,19 @@ public class GameManager : MonoBehaviour
         {
             finalReadout.text += "\nNo good. You're way under budget.";
         }
+
+        // End level in 5 seconds
+        Invoke("EndLevel", 5);
+    }
+
+    void ReadLoss()
+    {
+        // Show final score
+        readoutPanel.gameObject.SetActive(true);
+        finalReadout.color = Color.red;
+        finalReadout.text = "You didn't check out in time!\n";
+        finalReadout.text += "You (almost) spent:\n$" + currentCash + "/$" + maxCash + "\n" + (((float)currentCash / maxCash) * 100).ToString("00.00") + "%\nof your budget X " + currentItems;
+        finalReadout.text += "\nYour would-be score: " + (((float)currentCash / maxCash) * 100) * currentItems;
 
         // End level in 5 seconds
         Invoke("EndLevel", 5);

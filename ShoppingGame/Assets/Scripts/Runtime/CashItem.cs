@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CashItem : MonoBehaviour
 {
     [HideInInspector]
-    public CashItemSO profile;
+    public CashItemSO profile = null;
 
     string itemName, itemType;
 
@@ -27,9 +27,9 @@ public class CashItem : MonoBehaviour
         gm = FindObjectOfType<GameManager>();
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.collider.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && gm.levelOver == false)
         {
             gm.AddCash(value);
             Destroy(gameObject);
