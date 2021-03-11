@@ -27,9 +27,10 @@ public class CashItem : MonoBehaviour
         gm = FindObjectOfType<GameManager>();
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    // Pickup behaviour; temporary code, references global button input instead of player itself
+    void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && gm.levelOver == false)
+        if (collision.gameObject.tag == "Player" && gm.levelOver == false && Input.GetButton("Fire1"))
         {
             gm.AddCash(value);
             Destroy(gameObject);

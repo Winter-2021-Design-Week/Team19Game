@@ -41,10 +41,16 @@ public class GameManager : MonoBehaviour
         {
             ReadScore();
         }
-        else if (Time.timeSinceLevelLoad <= maxTime)
+
+        // HUD timer update
+        if (Time.timeSinceLevelLoad <= maxTime)
         {
+            // Time unit calculations
+            int sec = (int)Time.timeSinceLevelLoad;
+            int milli = (int)(Time.timeSinceLevelLoad * 1000) % 1000;
+
             // Timer's visual update
-            timer.text = (maxTime - Time.timeSinceLevelLoad).ToString("00:00");
+            timer.text = $"{maxTime - 1 - sec}.{999 - milli:000}";
         }
     }
 
@@ -58,25 +64,35 @@ public class GameManager : MonoBehaviour
     {
         // Show final score
         readoutPanel.gameObject.SetActive(true);
-        finalReadout.text = "You spent:\n$" + currentCash + "/$" + maxCash + "\n" + (((float)currentCash / maxCash) * 100).ToString("00.00") + "%\nof your budget X " + currentItems;
-        finalReadout.text += "\nScore: " + (((float)currentCash / maxCash) * 100) * currentItems;
 
-        // If over budget
-        if ((float)currentCash / maxCash > 1)
+        // Over budget means no points
+        if (currentCash > maxCash)
         {
-            finalReadout.text += "\nToo bad! You're over budget.";
-        }
-        else if ((float)currentCash / maxCash == 1)
-        {
-            finalReadout.text += "\nNice! You're right on budget.";
-        }
-        else if ((float)currentCash / maxCash > .5f && (float)currentCash / maxCash < 1)
-        {
-            finalReadout.text += "\nPretty good! You're close to budget.";
+            finalReadout.color = Color.red;
+            finalReadout.text = "You went over your budget!\nNo points for you!";
         }
         else
         {
-            finalReadout.text += "\nNo good. You're way under budget.";
+            finalReadout.text = "You spent:\n$" + currentCash + "/$" + maxCash + "\n" + (((float)currentCash / maxCash) * 100).ToString("0.00") + "% of your budget\n× " + currentItems + " items";
+            finalReadout.text += "\nScore: " + (((float)currentCash / maxCash) * 100) * currentItems;
+
+            // If over budget
+            if ((float)currentCash / maxCash > 1)
+            {
+                finalReadout.text += "\nToo bad! You're over budget.";
+            }
+            else if ((float)currentCash / maxCash == 1)
+            {
+                finalReadout.text += "\nNice! You're right on budget.";
+            }
+            else if ((float)currentCash / maxCash > .5f && (float)currentCash / maxCash < 1)
+            {
+                finalReadout.text += "\nPretty good! You're close to budget.";
+            }
+            else
+            {
+                finalReadout.text += "\nNo good. You're way under budget.";
+            }
         }
 
         // End level in 5 seconds
@@ -87,10 +103,8 @@ public class GameManager : MonoBehaviour
     {
         // Show final score
         readoutPanel.gameObject.SetActive(true);
-        finalReadout.color = Color.red;
-        finalReadout.text = "You didn't check out in time!\n";
-        finalReadout.text += "You (almost) spent:\n$" + currentCash + "/$" + maxCash + "\n" + (((float)currentCash / maxCash) * 100).ToString("00.00") + "%\nof your budget X " + currentItems;
-        finalReadout.text += "\nYour would-be score: " + (((float)currentCash / maxCash) * 100) * currentItems;
+        finalReadout.color = Color.red;        
+        finalReadout.text = "You didn't cash out!\nNo points for you!";
 
         // End level in 5 seconds
         Invoke("EndLevel", 5);
