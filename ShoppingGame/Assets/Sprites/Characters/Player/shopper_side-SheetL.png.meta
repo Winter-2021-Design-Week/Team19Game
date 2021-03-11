@@ -14,6 +14,18 @@ TextureImporter:
   - first:
       213: -5337214827855428334
     second: shopper_side-SheetL_3
+  - first:
+      213: 8651958410552778681
+    second: shopper_side-Sheet_0
+  - first:
+      213: -6380565810768843797
+    second: shopper_side-Sheet_1
+  - first:
+      213: 867157057741955344
+    second: shopper_side-Sheet_2
+  - first:
+      213: -6905043837460741099
+    second: shopper_side-Sheet_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:

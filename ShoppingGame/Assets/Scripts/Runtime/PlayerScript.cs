@@ -8,7 +8,7 @@ public class PlayerScript : MonoBehaviour
     Animator anim;
 
     [SerializeField]
-    float speed = 3f, currentSpeed;
+    float speed = 5f, currentSpeed;
     Vector2 stepDirection;
 
     // Start is called before the first frame update
@@ -41,31 +41,19 @@ public class PlayerScript : MonoBehaviour
 
     private void FixedUpdate()
     {
+        rb.velocity = Vector2.zero;
+
         stepDirection.Normalize();
 
-        rb.MovePosition((Vector2)transform.position + stepDirection * speed * Time.deltaTime);
+        rb.velocity = stepDirection * speed;
 
         currentSpeed = rb.velocity.magnitude;
 
         // Temporary animation parameter output
-        anim.SetFloat("currentSpeed", stepDirection.magnitude);
+        anim.SetFloat("currentSpeed", currentSpeed);
 
-        if (stepDirection.y > 0)
-        {
-            anim.SetBool("up", false);
-        }
-        if (stepDirection.y < 0)
-        {
-            anim.SetBool("up", true);
-        }
-        if (stepDirection.x > 0)
-        {
-            anim.SetBool("right", true);
-        }
-        if (stepDirection.x < 0)
-        {
-            anim.SetBool("right", false);
-        }
+        anim.SetFloat("currentXSpeed", stepDirection.x);
+        anim.SetFloat("currentYSpeed", stepDirection.y);
 
         stepDirection = Vector2.zero;
     }
