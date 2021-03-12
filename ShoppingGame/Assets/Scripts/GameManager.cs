@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
         if (currentCash > maxCash)
         {
             finalReadout.color = Color.red;
-            finalReadout.text = "You went over your budget!\nNo points for you!";
+            finalReadout.text = "You went $" + (currentCash - maxCash) + " over your budget!\nNo points for you!";
         }
         else
         {

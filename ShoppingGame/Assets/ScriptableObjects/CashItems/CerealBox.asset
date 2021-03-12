@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a23ecfae422782408bc8b513a909542, type: 3}
-  m_Name: CashItem_TV
+  m_Name: CerealBox
   m_EditorClassIdentifier: 
-  itemName: TV
-  itemType: Tech
-  value: 50
-  sprite: {fileID: 4869153151293549768, guid: 3ba31ba6d8e200846bd15bfc3cb3045a, type: 3}
+  itemName: Cereal Box
+  itemType: Food
+  value: 5
+  sprite: {fileID: 5495920700872620534, guid: b0123afbbd9af414693915e85856f6bb, type: 3}

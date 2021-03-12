@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a23ecfae422782408bc8b513a909542, type: 3}
-  m_Name: CashItem_GameController
+  m_Name: Car
   m_EditorClassIdentifier: 
-  itemName: Game Controller
-  itemType: Tech
-  value: 50
-  sprite: {fileID: 8979120799489307997, guid: 3ba31ba6d8e200846bd15bfc3cb3045a, type: 3}
+  itemName: Toy Car
+  itemType: Toy
+  value: 25
+  sprite: {fileID: -6479397593084433957, guid: b0123afbbd9af414693915e85856f6bb, type: 3}
