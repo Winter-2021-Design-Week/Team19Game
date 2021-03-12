@@ -75,8 +75,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            finalReadout.text = "You spent:\n$" + currentCash + "/$" + maxCash + "\n" + (((float)currentCash / maxCash) * 100).ToString("0.00") + "% of your budget\n× " + currentItems + " items";
-            finalReadout.text += $"\nwith {maxTime - 1 - sec}.{(1000 - milli) % 1000:000} seconds to spare!";
+            finalReadout.text = "You spent:\n$" + currentCash + "/$" + maxCash + "\n" + (((float)currentCash / maxCash) * 100).ToString("0.00") + "% of your budget × " + currentItems + " items";
+            finalReadout.text += $"\nWith {maxTime - 1 - sec}.{(1000 - milli) % 1000:000} seconds to spare!";
             finalReadout.text += "\nScore: " + (((float)currentCash / maxCash) * 100) * currentItems;
 
             // If over budget
