@@ -12,14 +12,17 @@ public class GameManager : MonoBehaviour
     public Text timer, budget, finalReadout;
     int sec, milli;
 
-    public Image readoutPanel;
+    public GameObject readoutPanel, tutorialPanel;
 
     public int currentCash = 0, maxCash, maxTime, currentItems = 0;
+
+    public bool roundStarted = false;
+    public float roundStartTime = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        readoutPanel.gameObject.SetActive(false);
+        readoutPanel.SetActive(false);
 
         levelOver = false;
 
@@ -31,25 +34,31 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Dismisses tutorial if it is still active
+        if (tutorialPanel.activeSelf && Input.anyKey && Time.timeSinceLevelLoad > 1)
+        {
+            tutorialPanel.gameObject.SetActive(false);
+        }
+
         // Game over by timeout
-        if (Time.timeSinceLevelLoad >= maxTime && levelOver == false)
+        if (Time.timeSinceLevelLoad - roundStartTime >= maxTime && levelOver == false)
         {
             timer.text = "0.000";
             levelOver = true;
             ReadLoss();
         }
         // Win, if out of the store before timeout (levelOver is set true by another gameobject)
-        else if (Time.timeSinceLevelLoad < maxTime && levelOver == true)
+        else if (Time.timeSinceLevelLoad - roundStartTime < maxTime && levelOver == true)
         {
             ReadScore();
         }
 
         // HUD timer update
-        if (Time.timeSinceLevelLoad <= maxTime && levelOver == false)
+        if (Time.timeSinceLevelLoad - roundStartTime <= maxTime && levelOver == false && roundStarted)
         {
             // Time unit calculations
-            sec = (int)Time.timeSinceLevelLoad;
-            milli = (int)(Time.timeSinceLevelLoad * 1000) % 1000;
+            sec = (int)Time.timeSinceLevelLoad - (int)roundStartTime;
+            milli = (int)((Time.timeSinceLevelLoad - roundStartTime) * 1000) % 1000;
 
             // Timer's visual update
             timer.text = $"{maxTime - 1 - sec}.{(1000 - milli) % 1000:000}";
@@ -65,7 +74,7 @@ public class GameManager : MonoBehaviour
     void ReadScore()
     {
         // Show final score
-        readoutPanel.gameObject.SetActive(true);
+        readoutPanel.SetActive(true);
 
         // Over budget means no points
         if (currentCash > maxCash)
@@ -105,7 +114,7 @@ public class GameManager : MonoBehaviour
     void ReadLoss()
     {
         // Show final score
-        readoutPanel.gameObject.SetActive(true);
+        readoutPanel.SetActive(true);
         finalReadout.color = Color.red;        
         finalReadout.text = "You didn't cash out!\nNo points for you!";
 
@@ -118,7 +127,7 @@ public class GameManager : MonoBehaviour
         // Just to be safe, cancel all invokes
         CancelInvoke();
 
-        // Temporary level call
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // Switch to title screen
+        SceneManager.LoadScene(0);
     }
 }
