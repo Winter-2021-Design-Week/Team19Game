@@ -13,10 +13,10 @@ public class ExitScript : MonoBehaviour
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    // Player triggers the round ending
-    void OnTriggerEnter2D(Collider2D collision)
+    // Player triggers the round ending when pressing the interact button while inside the trigger
+    void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && Input.GetButton("Fire1"))
         {
             gm.levelOver = true;
         }

@@ -27,14 +27,17 @@ public class TitleManager : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            fadeStart = Time.time;
+            fadeStart = Time.timeSinceLevelLoad;
             // Increase blink rate before queuing next scene to load
             rate = .1f;
             Invoke("BeginGame", 3);
         }
 
         // For fading music upon starting the game
-        jukebox.volume = 1 - (Time.time - fadeStart) / (fadeStart + 1);
+        if (fadeStart != 0)
+        {
+            jukebox.volume = 1 - (Time.timeSinceLevelLoad - fadeStart) / (fadeStart + 1);
+        }
     }
 
     void BeginGame()
