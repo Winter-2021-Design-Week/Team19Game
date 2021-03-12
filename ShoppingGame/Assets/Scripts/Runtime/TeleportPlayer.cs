@@ -22,7 +22,9 @@ public class TeleportPlayer : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             player.GetComponent<Rigidbody2D>().position = teleLoc.transform.position;
-            gm.roundStartTime = Time.fixedTime;
+            
+            // Adjusts the timer variables in the game manager
+            gm.roundStartTime = Time.time;
             gm.roundStarted = true;
         }
     }

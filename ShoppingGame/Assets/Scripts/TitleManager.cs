@@ -9,8 +9,11 @@ public class TitleManager : MonoBehaviour
     [SerializeField]
     Image pressStart;
 
+    [SerializeField]
+    AudioSource jukebox;
+
     bool lit = false;
-    float rate = .8f;
+    float rate = .8f, fadeStart;
 
     // Start is called before the first frame update
     void Start()
@@ -24,10 +27,14 @@ public class TitleManager : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
+            fadeStart = Time.time;
             // Increase blink rate before queuing next scene to load
             rate = .1f;
             Invoke("BeginGame", 3);
         }
+
+        // For fading music upon starting the game
+        jukebox.volume = 1 - (Time.time - fadeStart) / (fadeStart + 1);
     }
 
     void BeginGame()
